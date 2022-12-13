@@ -32,8 +32,14 @@ snori_clothes_decision = {
 		ig:ig_landowners = {
 			is_powerful = no
 		}
-		ig:ig_intelligentsia = {
-			is_in_government = yes
+		OR = {
+			ig:ig_intelligentsia = {
+				is_in_government = yes
+			}
+			custom_tooltip = {
+				text = is_meiji_japan
+				has_variable = meiji_restoration_complete
+			}
 		}
 	}
 	
