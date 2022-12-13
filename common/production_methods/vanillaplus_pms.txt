@@ -1,4 +1,4 @@
-﻿pm_pyrolysis = {		
+pm_pyrolysis = {		
 	texture = "gfx/interface/icons/production_method_icons/electric_arc_process.dds"
 	
 	pollution_generation = 20
@@ -6,18 +6,17 @@
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_coal_add = 30  # x30 = 900
+			building_input_coal_add = 25  # x30 = 750
 			building_input_sulfur_add = 10 # x50 = 500
 
 			# output goods
 			building_output_oil_add = 30    # * 40 = 1200   
 		}																	
 
-			#profit = -200, only valuable if oil is expensive or inputs are cheap
+			#profit = -50, only valuable if oil is expensive or inputs are cheap
 
 		level_scaled = {
-			# employment
-			building_employment_laborers_add = 1500 #  x1.0 = 1500
+			# employment10
 			building_employment_machinists_add = 1000 # x1.5 = 1500
 			building_employment_engineers_add = 500 #  x3.0 =  1500
 		}
@@ -72,16 +71,9 @@ pm_biofuels = {
 	building_modifiers = {
 		workforce_scaled = {
 			# input goods
-			building_input_grain_add = 40 # x20 = -800
+			building_input_grain_add = 20 # x20 = -400
 			building_input_coal_add = -20 # x30 = +600
 		}	
-
-		# more expensive, but grain is more easily available
-
-		level_scaled = {
-			# employment
-			building_employment_engineers_add = 100 # x3.0 = 300
-		}
 	}
 }
 
