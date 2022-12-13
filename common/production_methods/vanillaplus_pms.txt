@@ -36,18 +36,18 @@ pm_hydrogenation = {
 		workforce_scaled = {
 			# input goods
 			building_input_coal_add = 50  # x30 = 1500
-			building_input_iron_add = 20 # x30 = 600
+			building_input_iron_add = 10 # x30 = 300
 
 			# output goods
 			building_output_oil_add = 60    # * 40 = 2400 
 		}
 
-		#profit = 300, only valuable if oil is expensive or inputs are cheap
+		#profit = 600, slightly better
 		
 		level_scaled = {
 			# employment
-			building_employment_machinists_add = 2000 # x1.5 = 3000
-			building_employment_engineers_add = 500  # x3.0 = 1500
+			building_employment_machinists_add = 500 # x1.5 = 750
+			building_employment_engineers_add = 750  # x3.0 = 2250
 		}
 	}
 }
