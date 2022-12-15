@@ -1,0 +1,22 @@
+UI MERGER
+
+4.11:
+	ARoAI
+	IG Attraction Improvement
+	More State Modifiers
+	Adopt Western Clothing
+	
+18.11
+	Update All
+
+23.11
+	Only the Good Die Young
+	
+07.12
+	Update All
+	
+	Political Activity Hotfix
+	
+changed files: 
+	interests_groups/00_armed_forcess
+	map_data/state_regions (americas + australia files)

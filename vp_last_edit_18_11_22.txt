@@ -1,0 +1,60 @@
+4.11:	
+	common/decisions/
+	common/history/characters/
+	common/ideologies/
+	common/interest_group_traits/
+	common/modifiers/
+	common/laws/economic
+	events/
+	localization/english
+	
+9.11:
+	map_data/state_regions
+	localization/english
+	
+20.11
+	Increase in-out on synthetic fuel plants (had very high labor costs)
+	
+	
+All VP files:
+		(indent = NEEDS merge)
+Common
+	building_groups\vanillaplus
+	buildings/vanillaplus
+	country_definitions\vanillaplus
+	|	decisions\japan_shinto
+	decisions\vanillaplus
+	diplomatic_plays\vanillaplus
+	dynamic_country_names\vanillaplus
+	|	government_types\vanillaplus (also |	regular ones)
+	history\characters\(all player countries)=
+	history\countries\ainu - norway
+	history\diplomacy\vanillaplus
+	|	history\states\00_states
+	ideologies\vanillaplus + dynamic_interest + cult
+	institutions\vanillaplus
+	interest_group_traits\vanillaplus
+	journal_entries\vanillaplus + dynamic_interest
+	laws\vanillaplus + cult
+	modifiers\vanillaplus
+	on_actions\vanillaplus + dynamic_interest
+	production_methods_groups\vanillaplus
+	production_methods\vanillaplus
+	scripted_triggers\vanillaplus
+	technologies\society fix
+										#technology\technologies\vanillaplus	#this was REMOVED
+	
+Events
+	liberalism
+	meiji_restoration
+	opium_wars
+	vanillaplus
+	dynamic_igs
+	
+Localization
+	english\vanillaplus
+	english\replace\countries
+	
+Map Data
+	state_regions\north-central-south america | east_asia | australasia
+	

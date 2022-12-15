@@ -1,0 +1,48 @@
+UI MERGER
+Added:
+
+2.11
+	Construction Queue with States
+	Dense Market Details
+	Dense Trade Routes Tab
+	Practical Heatmaps
+	Improved Building Map List
+	Compact State Overview
+	
+5.11
+	One Outliner to Rule them All
+	Pop Needs UI Panel
+	Dense Buildings
+	More Spreadsheets
+
+9.11
+	Improved Building Grid
+	Dense Military Tab
+	
+11.11
+	REMOVE Miniature world
+	REMOVE Dense Military Tab
+	
+	Updated all 
+
+18.11
+	READD Dense Military Tab
+	READD Miniature world
+	
+	Visual Methods
+	Clear Miniature Roads
+	No Red Smoke
+	Mediterranean Architecture
+	
+	Updated all
+
+19.11
+	Notifications Filter
+	Notifications Not Over Outliner
+
+23.11
+	REMOVE Notifications Not Over Outliner (incomp unless high res or gui scale set low)
+	Trade Routes in Goods Display
+
+07.12
+	Update All
