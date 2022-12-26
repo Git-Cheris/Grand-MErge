@@ -6,3 +6,12 @@
 		dynamic_interest_groups_flavor.3
 	}
 }
+
+on_capitulation = {
+	effect = {
+		set_variable = {
+			name = long_timer_capitulation
+			months = long_modifier_time
+		}
+	}
+}
