@@ -82,26 +82,6 @@
 		}
 
 		add = {
-			desc = "POP_BUREAUCRATS"
-			if = {
-				limit = { 
-					is_pop_type = bureaucrats
-				}
-				value = 5
-			}
-		}
-
-		add = {
-			desc = "POP_CAPITALISTS"
-			if = {
-				limit = { 
-					is_pop_type = capitalists
-				}
-				value = 5
-			}
-		}
-
-		add = {
 			desc = "SLAVE_STATE"
 			if = {
 				limit = {
@@ -129,6 +109,25 @@
 		}
 		
 		add = {
+			desc = "HIGH_SOL"
+			if = {
+				limit = { 
+					standard_of_living >= 25
+					standard_of_living < 50
+				}
+				value = standard_of_living
+				add = -25
+				multiply = 3
+			}
+			else_if = {
+				limit = { 
+					standard_of_living > 50
+				}
+				value = 75
+			}
+		}
+		
+		add = {
 			desc = "law_parliamentary_republic_reaction"
 			if = {
 				limit = {
@@ -137,18 +136,6 @@
 					}
 				}
 				value = 5
-			}
-		}
-		
-		add = {
-			desc = "law_council_republic_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_council_republic
-					}
-				}
-				value = -50
 			}
 		}
 
@@ -177,7 +164,7 @@
 		}
 
 		add = {
-			desc = "law_peasant_levies_reaction"
+			desc = "law_peasant_levies_entrenchment"
 			if = {
 				limit = {
 					owner = {
@@ -220,7 +207,7 @@
 						has_law = law_type:law_traditionalism
 					}
 				}
-				value = 20
+				value = 25
 			}
 		}
 		
@@ -249,7 +236,7 @@
 		}
 
 		add = {
-			desc = "law_command_economy_reaction"
+			desc = "law_command_economy_suppression"
 			if = {
 				limit = {
 					owner = {
@@ -297,18 +284,6 @@
 		}
 
 		add = {
-			desc = "law_graduated_taxation_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_graduated_taxation
-					}
-				}
-				value = 10
-			}
-		}
-
-		add = {
 			desc = "law_proportional_taxation_reaction"
 			if = {
 				limit = {
@@ -319,16 +294,16 @@
 				value = 5
 			}
 		}
-		
+
 		add = {
-			desc = "law_local_police_entrenchment"
+			desc = "law_graduated_taxation_reaction"
 			if = {
 				limit = {
 					owner = {
-						has_law = law_type:law_local_police
+						has_law = law_type:law_graduated_taxation
 					}
 				}
-				value = 5
+				value = 10
 			}
 		}
 		
@@ -341,6 +316,18 @@
 					}
 				}
 				value = 15
+			}
+		}
+		
+		add = {
+			desc = "law_local_police_entrenchment"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_local_police
+					}
+				}
+				value = 5
 			}
 		}
 
@@ -364,7 +351,7 @@
 						has_law = law_type:law_public_schools
 					}
 				}
-				value = -5
+				value = 5
 			}
 		}
 		
@@ -393,11 +380,35 @@
 		}
 		
 		add = {
-			desc = "law_serfdom_reaction"
+			desc = "law_serfdom_entrenchment"
 			if = {
 				limit = {
 					owner = {
 						has_law = law_type:law_serfdom
+					}
+				}
+				value = 10
+			}
+		}
+		
+		add = {
+			desc = "law_regulatory_bodies_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_regulatory_bodies
+					}
+				}
+				value = 5
+			}
+		}
+		
+		add = {
+			desc = "law_worker_protections_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_worker_protections
 					}
 				}
 				value = 10
@@ -418,7 +429,7 @@
 		}
 		
 		add = {
-			desc = "law_women_own_property_reaction"
+			desc = "law_women_own_property_entrenchment"
 			if = {
 				limit = {
 					owner = {
@@ -479,7 +490,7 @@
 		}
 		
 		add = {
-			desc = "OUTLAWED_DISSENT_NOT_IN_GOVERNMENT"
+			desc = "law_outlawed_dissent_opp_suppression"
 			if = {
 				limit = {
 					owner = {
@@ -487,12 +498,12 @@
 					}
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
-				value = -15
+				value = -10
 			}
 		}
 		
 		add = {
-			desc = "OUTLAWED_DISSENT_IN_GOVERNMENT"
+			desc = "law_outlawed_dissent_gov_entrenchment"
 			if = {
 				limit = {
 					owner = {
@@ -500,12 +511,12 @@
 					}
 					scope:interest_group = { is_in_government = yes }
 				}
-				value = 30
+				value = 10
 			}
 		}
 		
 		add = {
-			desc = "CENSORSHIP_NOT_IN_GOVERNMENT"
+			desc = "law_censorship_opp_suppression"
 			if = {
 				limit = {
 					owner = {
@@ -518,39 +529,13 @@
 		}
 		
 		add = {
-			desc = "CENSORSHIP_IN_GOVERNMENT"
+			desc = "law_censorship_gov_entrenchment"
 			if = {
 				limit = {
 					owner = {
 						has_law = law_type:law_censorship
 					}
 					scope:interest_group = { is_in_government = yes }
-				}
-				value = 15
-			}
-		}
-		
-		add = {
-			desc = "FEMINIST_NO_RIGHTS"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_no_womens_rights
-					}
-					scope:interest_group = { leader = { has_ideology = ideology_feminist } }
-				}
-				value = 10
-			}
-		}
-		
-		add = {
-			desc = "FEMINIST_PROPERTIED_WOMEN"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_women_own_property
-					}
-					scope:interest_group = { leader = { has_ideology = ideology_feminist } }
 				}
 				value = 5
 			}
@@ -560,98 +545,67 @@
 			desc = "FASCIST_CAPITULATED"
 			if = {
 				limit = {
-					scope:interest_group = { leader = { OR = { has_ideology = ideology_fascist has_ideology = ideology_ethno_nationalist } } }
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
 					owner = { has_variable = long_timer_capitulation }
 				}
-				value = 20
+				value = 25
 			}
 		}
 		
 		add = {
 			desc = "FASCIST_TURMOIL"
 			if = {
-				limit = { dig_turmoil_10 = yes }
-				value = 50
-			}
-			else_if = {
-				limit = { dig_turmoil_9 = yes }
-				value = 45
-			}
-			else_if = {
-				limit = { dig_turmoil_8 = yes }
-				value = 40
-			}
-			else_if = { 
-				limit = { dig_turmoil_7 = yes }
-				value = 35
-			}
-			else_if = {
-				limit = { dig_turmoil_6 = yes }
-				value = 30
-			}
-			else_if = {
-				limit = { dig_turmoil_5 = yes }
-				value = 25
-			}
-			else_if = {
-				limit = { dig_turmoil_4 = yes }
-				value = 20
-			}
-			else_if = {
-				limit = { dig_turmoil_3 = yes }
-				value = 15
-			}
-			else_if = {
-				limit = { dig_turmoil_2 = yes }
-				value = 10
-			}
-			else_if = {
-				limit = { dig_turmoil_1 = yes }
-				value = 5
+				limit = {
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				value = state.turmoil
+				multiply = 15
 			}
 		}
 		
 		add = {
 			desc = "FASCIST_UNEMPLOYMENT"
 			if = {
-				limit = { dig_unemployment_10 = yes }
-				value = 50
+				limit = {
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				value = state.state_unemployment_rate
+				multiply = 15
 			}
-			else_if = {
-				limit = { dig_unemployment_9 = yes }
-				value = 45
-			}
-			else_if = {
-				limit = { dig_unemployment_8 = yes }
-				value = 40
-			}
-			else_if = { 
-				limit = { dig_unemployment_7 = yes }
-				value = 35
-			}
-			else_if = {
-				limit = { dig_unemployment_6 = yes }
-				value = 30
-			}
-			else_if = {
-				limit = { dig_unemployment_5 = yes }
-				value = 25
-			}
-			else_if = {
-				limit = { dig_unemployment_4 = yes }
-				value = 20
-			}
-			else_if = {
-				limit = { dig_unemployment_3 = yes }
-				value = 15
-			}
-			else_if = {
-				limit = { dig_unemployment_2 = yes }
-				value = 10
-			}
-			else_if = {
-				limit = { dig_unemployment_1 = yes }
-				value = 5
+			if = {
+				limit = { 
+					is_employed = no 
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				add = 25
 			}
 		}
 		
@@ -669,7 +623,7 @@
 		}	
 
 		multiply = {
-			desc = "IG_IS_MARGINALIZED"
+			desc = "MARGINALIZED_IG"
 			value = 1.0
 			
 			scope:interest_group = {
@@ -683,7 +637,7 @@
 		}
 
 		multiply = {
-			desc = "IG_COUNCIL_REPUBLIC"
+			desc = "law_council_republic_suppression"
 			value = 1.0
 
 			if = {
@@ -695,7 +649,7 @@
 						is_pop_type = aristocrats
 					}
 				}
-				value = 0
+				value = 0.1
 			}
 		}
 	}

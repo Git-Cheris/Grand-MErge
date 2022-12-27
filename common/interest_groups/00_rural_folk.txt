@@ -154,47 +154,23 @@
 		}
 
 		add = {
-			desc = "POP_ARISTOCRATS"
+			desc = "POP_ARISTOCRATS_POOR"
 			if = {
 				limit = { 
+					standard_of_living <= 30
+					standard_of_living > 20
 					is_pop_type = aristocrats
-					standard_of_living < 20
+				}
+				value = standard_of_living
+				multiply = -5
+				add = 150
+			}
+			else_if = {
+				limit = { 
+					is_pop_type = aristocrats
+					standard_of_living <= 20
 				}
 				value = 50
-			}
-			else_if = {
-				limit = { 
-					is_pop_type = aristocrats
-					standard_of_living < 22
-				}
-				value = 40
-			}
-			else_if = {
-				limit = { 
-					is_pop_type = aristocrats
-					standard_of_living < 24
-				}
-				value = 30
-			}
-			else_if = {
-				limit = { 
-					is_pop_type = aristocrats
-					standard_of_living < 26
-				}
-				value = 20
-			}
-			else_if = {
-				limit = { 
-					is_pop_type = aristocrats
-					standard_of_living < 28
-				}
-				value = 10
-			}
-			else_if = {
-				limit = { 
-					is_pop_type = aristocrats
-				}
-				value = 5
 			}
 		}
 
@@ -206,7 +182,7 @@
 						has_law = law_type:law_council_republic
 					}
 				}
-				value = 10
+				value = 15
 			}
 		}
 		
@@ -230,7 +206,7 @@
 						has_law = law_type:law_multicultural
 					}
 				}
-				value = 10
+				value = 15
 			}
 		}
 		
@@ -257,6 +233,55 @@
 				value = 10
 			}
 		}
+
+		add = {
+			desc = "law_traditionalism_entrenchment"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_traditionalism
+					}
+				}
+				value = 5
+			}
+		}
+		
+		add = {
+			desc = "law_agrarianism_entrenchment"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_agrarianism
+					}
+				}
+				value = 15
+			}
+		}
+		
+
+		add = {
+			desc = "law_command_economy_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_command_economy
+					}
+				}
+				value = 15
+			}
+		}
+		
+		add = {
+			desc = "law_isolationism_entrenchment"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_isolationism
+					}
+				}
+				value = 5
+			}
+		}
 		
 		add = {
 			desc = "law_free_trade_reaction"
@@ -267,6 +292,65 @@
 					}
 				}
 				value = 10
+			}
+		}
+
+		add = {
+			desc = "law_land_based_taxation_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_land_based_taxation
+					}
+				}
+				value = 10
+			}
+		}
+		
+		add = {
+			desc = "law_colonial_resettlement_entrenchment"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_colonial_resettlement
+					}
+				}
+				value = 20
+			}
+		}
+		
+		add = {
+			desc = "law_militarized_police_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_militarized_police
+					}
+				}
+				value = 10
+			}
+		}	
+
+		add = {
+			desc = "law_serfdom_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_serfdom
+					}
+				}
+				value = 20
+			}
+		}
+		add = {
+			desc = "law_compulsory_primary_school_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_compulsory_primary_school
+					}
+				}
+				value = 5
 			}
 		}
 		
@@ -293,123 +377,13 @@
 				value = 5
 			}
 		}
-
-		add = {
-			desc = "law_land_based_taxation_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_land_based_taxation
-					}
-				}
-				value = 10
-			}
-		}	
 		
 		add = {
-			desc = "law_colonial_resettlement_entrenchment"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_colonial_resettlement
-					}
-				}
-				value = 20
-			}
-		}
-
-		add = {
-			desc = "law_serfdom_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_serfdom
-					}
-				}
-				value = 20
-			}
-		}
-
-		add = {
-			desc = "law_command_economy_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_command_economy
-					}
-				}
-				value = 10
-			}
-		}
-
-		add = {
-			desc = "law_traditionalism_entrenchment"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_traditionalism
-					}
-				}
-				value = 5
-			}
-		}
-		
-		add = {
-			desc = "law_agrarianism_entrenchment"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_agrarianism
-					}
-				}
-				value = 10
-			}
-		}
-		
-		add = {
-			desc = "law_compulsory_primary_school_reaction"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_compulsory_primary_school
-					}
-				}
-				value = 10
-			}
-		}
-		
-		add = {
-			desc = "OUTLAWED_DISSENT_NOT_IN_GOVERNMENT"
+			desc = "law_outlawed_dissent_opp_suppression"
 			if = {
 				limit = {
 					owner = {
 						has_law = law_type:law_outlawed_dissent
-					}
-					NOT = { scope:interest_group = { is_in_government = yes } }
-				}
-				value = -10
-			}
-		}
-		
-		add = {
-			desc = "OUTLAWED_DISSENT_IN_GOVERNMENT"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_outlawed_dissent
-					}
-					scope:interest_group = { is_in_government = yes }
-				}
-				value = 10
-			}
-		}
-		
-		add = {
-			desc = "CENSORSHIP_NOT_IN_GOVERNMENT"
-			if = {
-				limit = {
-					owner = {
-						has_law = law_type:law_censorship
 					}
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
@@ -418,11 +392,11 @@
 		}
 		
 		add = {
-			desc = "CENSORSHIP_IN_GOVERNMENT"
+			desc = "law_outlawed_dissent_gov_entrenchment"
 			if = {
 				limit = {
 					owner = {
-						has_law = law_type:law_censorship
+						has_law = law_type:law_outlawed_dissent
 					}
 					scope:interest_group = { is_in_government = yes }
 				}
@@ -431,7 +405,7 @@
 		}
 		
 		add = {
-			desc = "FEMINIST_NO_RIGHTS"
+			desc = "law_no_womens_rights_feminist_reaction"
 			if = {
 				limit = {
 					owner = {
@@ -444,7 +418,7 @@
 		}
 		
 		add = {
-			desc = "FEMINIST_PROPERTIED_WOMEN"
+			desc = "law_women_own_property_feminist_reaction"
 			if = {
 				limit = {
 					owner = {
@@ -460,98 +434,272 @@
 			desc = "FASCIST_CAPITULATED"
 			if = {
 				limit = {
-					scope:interest_group = { leader = { OR = { has_ideology = ideology_fascist has_ideology = ideology_ethno_nationalist } } }
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
 					owner = { has_variable = long_timer_capitulation }
 				}
-				value = 45
+				value = 40
 			}
 		}
 		
 		add = {
 			desc = "FASCIST_TURMOIL"
 			if = {
-				limit = { dig_turmoil_10 = yes }
-				value = 100
-			}
-			else_if = {
-				limit = { dig_turmoil_9 = yes }
-				value = 90
-			}
-			else_if = {
-				limit = { dig_turmoil_8 = yes }
-				value = 80
-			}
-			else_if = { 
-				limit = { dig_turmoil_7 = yes }
-				value = 70
-			}
-			else_if = {
-				limit = { dig_turmoil_6 = yes }
-				value = 60
-			}
-			else_if = {
-				limit = { dig_turmoil_5 = yes }
-				value = 50
-			}
-			else_if = {
-				limit = { dig_turmoil_4 = yes }
-				value = 40
-			}
-			else_if = {
-				limit = { dig_turmoil_3 = yes }
-				value = 30
-			}
-			else_if = {
-				limit = { dig_turmoil_2 = yes }
-				value = 20
-			}
-			else_if = {
-				limit = { dig_turmoil_1 = yes }
-				value = 10
+				limit = {
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				value = state.turmoil
+				multiply = 25
 			}
 		}
 		
 		add = {
 			desc = "FASCIST_UNEMPLOYMENT"
 			if = {
-				limit = { dig_unemployment_10 = yes }
-				value = 100
+				limit = {
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				value = state.state_unemployment_rate
+				multiply = 25
 			}
-			else_if = {
-				limit = { dig_unemployment_9 = yes }
-				value = 90
+			if = {
+				limit = { 
+					is_employed = no 
+					scope:interest_group = { 
+						leader = { 
+							OR = { 
+								has_ideology = ideology_fascist 
+								has_ideology = ideology_ethno_nationalist 
+							}
+						}
+					}
+				}
+				add = 40
 			}
-			else_if = {
-				limit = { dig_unemployment_8 = yes }
-				value = 80
-			}
-			else_if = { 
-				limit = { dig_unemployment_7 = yes }
-				value = 70
-			}
-			else_if = {
-				limit = { dig_unemployment_6 = yes }
-				value = 60
-			}
-			else_if = {
-				limit = { dig_unemployment_5 = yes }
-				value = 50
-			}
-			else_if = {
-				limit = { dig_unemployment_4 = yes }
+		}
+		
+		add = {
+			desc = "RADICAL_LEADER"
+			if = {
+				limit = { owner = { has_law = law_type:law_autocracy } }
 				value = 40
 			}
 			else_if = {
-				limit = { dig_unemployment_3 = yes }
+				limit = { owner = { has_law = law_type:law_oligarchy } }
+				value = 40
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_cult_of_personality } }
+				value = 40
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_anarchy } }
 				value = 30
 			}
 			else_if = {
-				limit = { dig_unemployment_2 = yes }
+				limit = { owner = { has_law = law_type:law_landed_voting } }
 				value = 20
 			}
 			else_if = {
-				limit = { dig_unemployment_1 = yes }
+				limit = { owner = { has_law = law_type:law_wealth_voting } }
 				value = 10
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_outlawed_dissent } }
+				value = 30
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_censorship } }
+				value = 20
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_secret_police } }
+				value = 30
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_national_guard } }
+				value = 20
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_no_home_affairs } }
+				value = 5
+			}
+			if = {
+				limit = { NOT = { scope:interest_group = { leader = { has_ideology = ideology_radical  } } } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { scope:interest_group = { is_marginal = yes } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { state.turmoil >= 0.25 }
+				multiply = state.turmoil
+			}
+			else = {
+				multiply = 0.25
+			}
+		}
+		
+		add = {
+			desc = "COMMUNIST_LEADER"
+			if = {
+				limit = { owner = { has_law = law_type:law_no_social_security } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_poor_laws } }
+				add = 20
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_wage_subsidies } }
+				add = 5
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_serfdom } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_serfdom_banned } }
+				add = 20
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_regulatory_bodies } }
+				add = 5
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_monarchy } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_theocracy } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_presidential_republic } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_parliamentary_republic } }
+				add = 15
+			}
+			if = {
+				limit = { NOT = { scope:interest_group = { leader = { has_ideology = ideology_communist } } } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { scope:interest_group = { is_marginal = yes } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { state.turmoil >= 0.25 }
+				multiply = state.turmoil
+			}
+			else = {
+				multiply = 0.25
+			}
+		}
+		
+		add = {
+			desc = "VANGUARD_LEADER"
+			if = {
+				limit = { owner = { has_law = law_type:law_anarchy } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_universal_suffrage } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_census_voting } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_wealth_voting } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_landed_voting } }
+				add = 25
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_monarchy } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_theocracy } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_presidential_republic } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_parliamentary_republic } }
+				add = 15
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_traditionalism } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_agrarianism } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_interventionism } }
+				add = 10
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_laissez_faire } }
+				add = 25
+			}
+			if = {
+				limit = { owner = { has_law = law_type:law_free_trade } }
+				add = 25
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_isolationism } }
+				add = 15
+			}
+			else_if = {
+				limit = { owner = { has_law = law_type:law_mercantilism } }
+				add = 10
+			}
+			if = {
+				limit = { NOT = { scope:interest_group = { leader = { has_ideology = ideology_vanguardist } } } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { scope:interest_group = { is_marginal = yes } }
+				multiply = 0
+			}
+			else_if = {
+				limit = { state.turmoil >= 0.25 }
+				multiply = state.turmoil
+			}
+			else = {
+				multiply = 0.25
 			}
 		}
 		
@@ -569,7 +717,7 @@
 		}
 
 		multiply = {
-			desc = "IG_IS_MARGINALIZED"
+			desc = "MARGINALIZED_IG"
 			value = 1.0
 			
 			scope:interest_group = {
