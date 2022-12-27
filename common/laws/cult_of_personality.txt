@@ -29,6 +29,10 @@ law_cult_of_personality = {
 		country_legitimacy_ideological_incoherence_mult = 1
 	}
 	
+	unlocking_technologies = {
+		psychoanalysis
+	}
+	
 	possible_political_movements = {
 		law_oligarchy
 	}

@@ -251,7 +251,7 @@ ideology_shinto_moralist = {
 		law_census_voting = disapprove
 		law_universal_suffrage = disapprove
 		law_anarchy = strongly_disapprove
-		law_cult_of_personality = strongly_disapprove
+		law_cult_of_personality = neutral
 	}
 }
 
