@@ -86,7 +86,7 @@
 				limit = { 
 					is_pop_type = engineers
 				}
-				value = 75
+				value = 50
 			}
 		}
 		
@@ -108,7 +108,7 @@
 				}
 				value = 25
 			}
-		}			
+		}
 		
 		add = {
 			desc = "POP_OFFICERS"
@@ -139,18 +139,6 @@
 					}
 				}
 				value = 5
-			}
-		}
-		
-		add = {
-			desc = "HIGH_LITERACY"
-			if = {
-				limit = { 
-					literacy_rate >= 0.5
-				}
-				value = literacy_rate
-				add = -0.5
-				multiply = 60
 			}
 		}
 
@@ -441,6 +429,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = 5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -454,6 +450,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -467,6 +471,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = 10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -770,7 +782,49 @@
 		}
 		
 		multiply = {
-			desc = "concept_literacy"
+			desc = "NO_ACADEMIA"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = academia }	
+					}
+				}
+				value = 0.5
+			}		
+		}
+		
+		multiply = {
+			desc = "NO_EMPIRICISM"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = empiricism }	
+					}
+				}
+				value = 0.75
+			}		
+		}
+		
+		multiply = {
+			desc = "HIGH_LITERACY"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					literacy_rate >= 0.5
+				}
+				value = literacy_rate
+				multiply = 0.5
+				add = 0.75
+			}
+		}
+		
+		multiply = {
+			desc = "LOW_LITERACY"
 			value = 1.0
 			
 			if = {
@@ -780,6 +834,48 @@
 				value = literacy_rate
 				multiply = 2
 			}
+		}
+		
+		multiply = {
+			desc = "YES_POLITICAL_AGITATION"	
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = political_agitation
+					}
+				}
+				value = 1.1
+			}		
+		}
+		
+		multiply = {
+			desc = "YES_HUMAN_RIGHTS"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = human_rights
+					}
+				}
+				value = 1.1
+			}		
+		}
+		
+		multiply = {
+			desc = "YES_CIVILIZING_MISSION"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = civilizing_mission
+					}
+				}
+				value = 1.1
+			}		
 		}
 		
 		multiply = {

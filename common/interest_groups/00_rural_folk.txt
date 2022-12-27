@@ -320,6 +320,18 @@
 		}
 		
 		add = {
+			desc = "law_colonial_exploitation_reaction"
+			if = {
+				limit = {
+					owner = {
+						has_law = law_type:law_colonial_exploitation
+					}
+				}
+				value = 5
+			}
+		}
+		
+		add = {
 			desc = "law_militarized_police_reaction"
 			if = {
 				limit = {
@@ -388,6 +400,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -401,6 +421,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		

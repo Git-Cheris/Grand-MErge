@@ -109,25 +109,6 @@
 		}
 		
 		add = {
-			desc = "HIGH_SOL"
-			if = {
-				limit = { 
-					standard_of_living >= 25
-					standard_of_living < 50
-				}
-				value = standard_of_living
-				add = -25
-				multiply = 3
-			}
-			else_if = {
-				limit = { 
-					standard_of_living > 50
-				}
-				value = 75
-			}
-		}
-		
-		add = {
 			desc = "law_parliamentary_republic_reaction"
 			if = {
 				limit = {
@@ -499,6 +480,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -512,6 +501,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -525,6 +522,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -538,6 +543,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -606,6 +619,55 @@
 					}
 				}
 				add = 25
+			}
+		}
+		
+		multiply = {
+			desc = "NO_DEMOCRACY"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = democracy }	
+					}
+				}
+				value = 1.25
+			}		
+		}
+		
+		multiply = {
+			desc = "NO_CENTRALIZATION"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = centralization }	
+					}
+				}
+				value = 1.25
+			}		
+		}
+		
+		multiply = {
+			desc = "HIGH_SOL"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					standard_of_living >= 25
+					standard_of_living < 50
+				}
+				value = standard_of_living
+				multiply = 0.02
+				add = 0.5
+			}
+			else_if = {
+				limit = { 
+					standard_of_living > 50
+				}
+				value = 1.5
 			}
 		}
 		

@@ -77,6 +77,16 @@
 		}
 
 		add = {
+			desc = "POP_FARMERS"
+			if = {
+				limit = { 
+					is_pop_type = farmers
+				}
+				value = 25
+			}
+		}
+
+		add = {
 			desc = "HIGH_LITERACY"
 			if = {
 				limit = { 
@@ -319,6 +329,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -332,6 +350,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -345,6 +371,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -358,6 +392,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -427,6 +469,20 @@
 				}
 				add = 40
 			}
+		}
+		
+		multiply = {
+			desc = "NO_EMPIRICISM"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = empiricism }	
+					}
+				}
+				value = 1.15
+			}		
 		}
 		
 		multiply = {

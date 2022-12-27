@@ -89,25 +89,6 @@
 		}
 		
 		add = {
-			desc = "HIGH_SOL"
-			if = {
-				limit = { 
-					standard_of_living >= 25
-					standard_of_living < 50
-				}
-				value = standard_of_living
-				add = -25
-				multiply = 3
-			}
-			else_if = {
-				limit = { 
-					standard_of_living > 50
-				}
-				value = 75
-			}
-		}
-		
-		add = {
 			desc = "RESOURCE_POP"
 			if = {
 				limit = { 
@@ -125,7 +106,7 @@
 		}
 		
 		add = {
-			desc = "URBAN_POP"
+			desc = "URBAN_ONLY_POP"
 			if = {
 				limit = { 
 					NOR = {
@@ -419,6 +400,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -432,6 +421,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 10
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -445,6 +442,14 @@
 					NOT = { scope:interest_group = { is_in_government = yes } }
 				}
 				value = -5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -458,6 +463,14 @@
 					scope:interest_group = { is_in_government = yes }
 				}
 				value = 5
+				if = {
+					limit = { 
+						owner = {
+							has_technology_researched = mass_propaganda
+						}
+					}
+					multiply = 1.5
+				}
 			}
 		}
 		
@@ -629,6 +642,7 @@
 						pop_employment_building = building_war_machine_industry
 						pop_employment_building = building_arms_industry
 						pop_employment_building = building_munition_plants
+						pop_employment_building = building_synthetic_fuel_industry
 						AND = {
 							pop_employment_building = building_shipyards
 							workplace = {
@@ -640,10 +654,126 @@
 								}
 							}
 						}
+						AND = {
+							pop_employment_building = building_chemical_plants
+							workplace = {
+								OR = {
+									has_active_production_method = pm_leblanc_process
+									has_active_production_method = pm_ammonia-soda_process
+									has_active_production_method = pm_vacuum_evaporation
+									has_active_production_method = pm_brine_electrolysis
+								}
+							}
+						}
 					}
 				}
 				value = 0.5
 			}
+		}
+		
+		multiply = {
+			desc = "HIGH_SOL"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					standard_of_living >= 25
+					standard_of_living < 50
+				}
+				value = standard_of_living
+				multiply = 0.02
+				add = 0.5
+			}
+			else_if = {
+				limit = { 
+					standard_of_living > 50
+				}
+				value = 1.5
+			}
+		}
+		
+		multiply = {
+			desc = "NO_STOCK_EXCHANGE"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = urban_planning }	
+					}
+				}
+				value = 0.5
+			}		
+		}
+		
+		multiply = {
+			desc = "NO_CENTRAL_BANKING"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = central_banking }
+					}
+				}
+				value = 0.75
+			}		
+		}
+		
+		multiply = {
+			desc = "NO_MUTUAL_FUNDS"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						NOT = { has_technology_researched = mutual_funds }
+					}
+				}
+				value = 0.9
+			}		
+		}
+		
+		multiply = {
+			desc = "YES_INTERNATIONAL_EXCHANGE_STANDARDS"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = international_exchange_standards
+					}
+				}
+				value = 1.1
+			}		
+		}
+		
+		multiply = {
+			desc = "YES_MODERN_FINANCIAL_INSTRUMENTS"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = modern_financial_instruments
+					}
+				}
+				value = 1.1
+			}		
+		}
+		
+		multiply = {
+			desc = "YES_MACROECONOMICS"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = macroeconomics
+					}
+				}
+				value = 1.1
+			}		
 		}
 
 		multiply = {
