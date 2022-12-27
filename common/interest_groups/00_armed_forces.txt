@@ -134,6 +134,13 @@
 								}
 							}
 						}
+					}
+				}
+				value = 50
+			}
+			else_if = {
+				limit = {
+					OR = {
 						AND = {
 							pop_employment_building = building_chemical_plants
 							workplace = {
@@ -147,7 +154,7 @@
 						}
 					}
 				}
-				value = 50
+				value = 10
 			}
 		}
 		
@@ -615,20 +622,6 @@
 					}
 				}
 				value = 1.5
-			}		
-		}
-		
-		multiply = {
-			desc = "YES_CIVILIZING_MISSION"
-			value = 1.0
-			
-			if = {
-				limit = { 
-					owner = {
-						has_technology_researched = civilizing_mission
-					}
-				}
-				value = 1.1
 			}		
 		}
 		
