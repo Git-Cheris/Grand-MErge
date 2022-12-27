@@ -724,6 +724,20 @@
 		}
 		
 		multiply = {
+			desc = "YES_CENTRAL_PLANNING"
+			value = 1.0
+			
+			if = {
+				limit = { 
+					owner = {
+						has_technology_researched = central_planning
+					}
+				}
+				value = 1.1
+			}		
+		}
+		
+		multiply = {
 			desc = "LEADER_POPULARITY"
 			scope:interest_group = {
 				leader = {
